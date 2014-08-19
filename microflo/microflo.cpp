@@ -166,6 +166,8 @@ void HostCommunication::parseCmd() {
 #else
         MICROFLO_DEBUG(this, DebugLevelError, DebugNotSupported);
 #endif
+    } else if (cmd == GraphCmdSetIoValue) {
+        network->setIoValue(buffer, MICROFLO_CMD_SIZE);
     } else if (cmd >= GraphCmdInvalid) {
         MICROFLO_ASSERT(memcmp(buffer, MICROFLO_GRAPH_MAGIC, sizeof(MICROFLO_GRAPH_MAGIC)) == 0,
                         this, DebugLevelError, DebugParserInvalidCommand);
@@ -400,6 +402,10 @@ void Network::setDebugLevel(DebugLevel level) {
     if (notificationHandler) {
         notificationHandler->debugChanged(level);
     }
+}
+
+void Network::setIoValue(const uint8_t *buf, uint8_t len) {
+    io->setIoValue(buf, len);
 }
 
 void Network::subscribeToPort(MicroFlo::NodeId nodeId, MicroFlo::PortId portId, bool enable) {

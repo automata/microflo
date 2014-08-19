@@ -10,6 +10,7 @@
         "ConfigureDebug": {"id": 15},
         "SubscribeToPort": {"id": 16},
         "ConnectSubgraphPort": {"id": 17},
+        "SetIoValue": {"id": 18},
 
         "NetworkStopped": {"id": 100},
         "NodeAdded": {"id": 101},
@@ -22,6 +23,7 @@
         "SubgraphPortConnected": {"id": 108},
 
         "PacketDelivered": {"id": 110},
+        "IoValueChanged":  {"id": 111},
 
         "Invalid": { },
         "Max": { "id": 255 }
@@ -76,6 +78,8 @@
         "IoFailure": {"id": 28},
         "DeliverMessagesInvalidMessageId": {"id": 29},
         "NotSupported": {"id": 30},
+        "IoInvalidValueSet": {"id": 31},
+        "UnknownIoType": {"id": 32},
 
         "Max": { "id": 255 }
     },
@@ -86,6 +90,16 @@
         "Info": {"id": 2},
         "Detailed": {"id": 3},
         "VeryDetailed": {"id": 4},
+
+        "Max": {"id": 255}
+    },
+    "ioTypes": {
+        "Invalid": {"id": 0},
+
+        "Analog": {"id": 1},
+        "Digital": {"id": 2},
+        "TimeMs": {"id": 3},
+        "PinMode": {"id": 4},
 
         "Max": {"id": 255}
     }
